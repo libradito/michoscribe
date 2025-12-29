@@ -1,0 +1,28 @@
+services:
+  michoscribe-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: michoscribe-server
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      # Override Firebase service account path for container
+      - FIREBASE_SERVICE_ACCOUNT=/app/credentials/michoscribe-firebase-adminsdk-fbsvc-1656054de0.json
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/michoscribe-firebase-adminsdk-fbsvc-1656054de0.json
+      # Firebase Storage bucket for audio files
+      - FIREBASE_STORAGE_BUCKET=michoscribe.firebasestorage.app
+    volumes:
+      # Mount Firebase/Google credentials
+      - ./michoscribe-firebase-adminsdk-fbsvc-1656054de0.json:/app/credentials/michoscribe-firebase-adminsdk-fbsvc-1656054de0.json:ro
+      # Persist uploads
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

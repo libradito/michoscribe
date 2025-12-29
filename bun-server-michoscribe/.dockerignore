@@ -1,0 +1,58 @@
+# Dependencies
+node_modules
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Build artifacts
+dist
+build
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test files
+coverage
+.nyc_output
+*.test.ts
+*.spec.ts
+__tests__
+
+# Docker
+Dockerfile
+docker-compose.yml
+.docker
+.dockerignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploads (don't include local uploads in image)
+uploads
+
+# Firebase credentials (should be mounted at runtime)
+*.json
+!package.json
+!tsconfig.json
+
+# Misc
+README.md
+LICENSE
+*.md

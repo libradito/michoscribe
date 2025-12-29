@@ -11,8 +11,8 @@ node_modules/
 serviceAccountKey*.json
 
 # Build outputs
-/build/
-/dist/
+build/
+dist/
 
 # React Router
 .react-router/

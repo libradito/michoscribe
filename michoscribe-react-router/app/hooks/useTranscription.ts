@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "./useAuth";
 import { subscribeToData, deleteData } from "~/lib/firebase/database";
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = import.meta.env.VITE_BUN_SERVER_URL || "http://localhost:3000";
 
 export type JobStatus = "pending" | "processing" | "completed" | "failed";
 export type ChunkStatus = "pending" | "transcribing" | "done" | "failed";

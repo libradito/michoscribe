@@ -20,7 +20,7 @@ app.use('*', logger());
 app.use(
   '*',
   cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000' , 'http://localhost:3001', 'http://127.0.0.1:5173'],
+    origin: ['http://localhost:5173', 'http://localhost:3000' , 'http://localhost:3001', 'https://michoscribe.mailcat.cloud', 'http://127.0.0.1:5173'],
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization'],
     exposeHeaders: ['Content-Length'],

@@ -15,7 +15,7 @@ services:
       - FIREBASE_STORAGE_BUCKET=michoscribe.firebasestorage.app
     volumes:
       - ./bun-server-michoscribe/michoscribe-firebase-adminsdk-fbsvc-1656054de0.json:/app/credentials/firebase-credentials.json:ro
-      - ./bun-server-michoscribe/uploads:/app/uploads
+      - uploads:/app/uploads
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
@@ -47,3 +47,6 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+
+volumes:
+  uploads:
